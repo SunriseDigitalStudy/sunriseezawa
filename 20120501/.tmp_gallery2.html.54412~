@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ギャラリー</title>
+<link rel="stylesheet" type="text/css" media="screen" href="reset.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="gallery2.css" />
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+</head>
+
+<body >
+<script type="text/javascript">
+$(function(){
+	var l = $('#image-list');
+	var prev = $('#pager #prev');
+	var next = $('#pager #next');
+	
+	prev.addClass('off');
+	next.addClass('on');
+	
+	$('#next').click(function(){
+		if (parseFloat(l.css('margin-left')) > -1200){
+		l.animate({ marginLeft: parseFloat(l.css('margin-left')) - 250 + 'px'}, 100);
+		} if (parseFloat(l.css('margin-left')) <= -1000){
+		next.removeClass('on');
+		next.addClass('off');
+		} if (parseFloat(l.css('margin-left')) <= 0){
+		prev.removeClass('off');
+		prev.addClass('on');
+		}
+	});
+	
+	$('#prev').click(function(){
+		if (parseFloat(l.css('margin-left')) < -249){
+		l.animate({ marginLeft: parseFloat(l.css('margin-left')) + 250 + 'px'}, 100);
+		} if (parseFloat(l.css('margin-left')) >= -250){
+		prev.removeClass('on');
+		prev.addClass('off');
+		} if (parseFloat(l.css('margin-left')) >= -1250){
+		next.removeClass('off');
+		next.addClass('on');
+		}
+	});
+});
+
+</script>
+
+	<div id="wrapper">
+		<h1 id="title">ギャラリー</h1>
+		<div id="image">
+			<ul id="image-list">
+				<li><img src="img/01.jpg" width="250" alt="01" /></li>
+				<li><img src="img/02.jpg" width="250" alt="02" /></li>
+				<li><img src="img/03.jpg" width="250" alt="03" /></li>
+				<li><img src="img/04.jpg" width="250" alt="04" /></li>
+				<li><img src="img/05.jpg" width="250" alt="05" /></li>
+				<li><img src="img/06.jpg" width="250" alt="06" /></li>
+			</ul>
+		</div>
+		<ul id="pager">
+			<li id="prev"><span>前へ</span></li>
+			<li id="next"><span>次へ</span></li>
+		</ul>
+	</div>
+</body>
+</html>

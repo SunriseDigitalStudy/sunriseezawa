@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ギャラリー</title>
+<link rel="stylesheet" type="text/css" media="screen" href="reset.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="gallery.css" />
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+</head>
+
+<body >
+<script type="text/javascript">
+$(function(){
+	$("#image-list img").click(function(){
+		$("p img").attr("src",$(this).attr("src")).attr("alt",$(this).attr("alt"));
+	});
+});
+</script>
+
+	<div id="wrapper">
+		<h1 id="title">ギャラリー</h1>
+		<p><img src="img/01.jpg" alt="01" /></p>
+		<ul id="image-list">
+			<li><img id="1" src="img/01.jpg" width="125" alt="01" /></li>
+			<li><img id="2" src="img/02.jpg" width="125" alt="02" /></li>
+			<li><img id="3" src="img/03.jpg" width="125" alt="03" /></li>
+			<li><img id="4" src="img/04.jpg" width="125" alt="04" /></li>
+			<li><img id="5" src="img/05.jpg" width="125" alt="05" /></li>
+			<li><img id="6" src="img/06.jpg" width="125" alt="06" /></li>
+		</ul>
+	</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+■galleryについて
+・コード的には問題ありません。ただ
+	$("p img").attr("src",$(this).attr("src")).attr("alt",$(this).attr("alt"));
+↑
+これは読みづらいので
+	$("p img")
+		.attr("src", $(this).attr("src"))
+		.attr("alt", $(this).attr("alt"));
+
+このように改行を入れたほうがみやすい
+
+
+■gallery2について
+・var l = $('#image-list');
+この変数は短い変数名を使うにはスコープが広すぎるし、重要度が高すぎる。
+一時的な変数なんかはたまに使いますが、結構メインの変数なので、コードが大きくなっていくと読みづらくなります。
+ちゃんとした名前をつけましょう。
+
+・$('#next').click()と$('#prev').click()の中身がかなり似ています。一つしちゃいましょう。
+例えば指定したliの画像を表示させる関数を作ります。
+
+function setImage(li)
+{
+	//表示中の画像をliにするの画像に
+	//liの前後のliを調べてclassを変更
+}
+
+$('#next').click(function(){
+	var target_li = //次のliを取得;
+	setImage(li);
+});
+
+$('#prev').click(function(){
+	var target_li = //次のliを取得;
+	setImage(li);
+});
+
+こんな感じで行けそうです。
+
+■課題
+・画像を変更する部分を関数に一箇所に（アニメーションもさせてください）
+・gallery2.htmlをgallery.htmlのようにサムネイルを表示してクリックでも移動可能にする
+
+以上です。
+頑張ってください～
