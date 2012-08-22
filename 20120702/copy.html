@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ギャラリー</title>
+<link rel="stylesheet" type="text/css" media="screen" href="reset.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="gallery2.css" />
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+</head>
+
+<body >
+<script type="text/javascript">
+$(function(){
+
+	var imagelist = $('#image-list'),
+	prev = $('#pager #prev'),
+	next = $('#pager #next'),
+	total = $('#image-list img').size()-1;
+
+	//初期設定
+	prev.addClass('off');
+	setGallery($);
+		
+	//class="off"を切り替える関数
+	function setGallery($) {
+
+		$('#pager li').click(function(e){
+		
+		var image = parseFloat(imagelist.css('margin-left'))/-250,
+		id = $(this).attr('id');
+		
+		switch(id) {
+			
+				case 'prev' :
+					if (image == 1) {
+						prev.addClass('off');
+					}
+					
+					else if (image == total) {
+						next.removeClass('off');
+					}
+				break;
+				
+				case 'next' :
+					if (image == 0) {
+						prev.removeClass('off');
+					}
+					
+					else if(image == total-1) {
+						next.addClass('off');
+					}
+				break;
+				
+				default:
+					return false;
+				break;
+			}
+		});
+		
+		$('#thum img').click(function(e){
+		
+			var target_index = $("#thum img").index(this);
+			if (target_index == 0){
+				prev.addClass('off');
+				next.removeClass('off');
+			}
+			
+			else if (target_index == total){
+				next.addClass('off');
+				prev.removeClass('off');
+			}
+			
+			else {
+				$('#pager li').removeClass('off');
+			}
+		});
+	}
+	
+	//前へ
+	$('#prev').click(function(){
+		var setImage = parseFloat(imagelist.css('margin-left')),
+		image = parseFloat(imagelist.css('margin-left'))/-250;
+		if(image != 0){
+			imagelist.animate({ marginLeft: setImage + 250 + 'px'}, 100);
+		}
+		setGallery($);
+	});
+	
+	//次へ
+	$('#next').click(function(){
+		var setImage = parseFloat(imagelist.css('margin-left')),
+		image = parseFloat(imagelist.css('margin-left'))/-250;
+		if(image != total){
+			imagelist.animate({ marginLeft: setImage - 250 + 'px'}, 100);
+		}
+		setGallery($);
+	});
+		
+	//サムネイルクリックでのスライド
+	$("#thum img").click(function(e){
+		var target_index = $("#thum img").index(this),
+		setImage = parseFloat(imagelist.css('margin-left'));
+		
+		imagelist.animate({ marginLeft: target_index * -250 + 'px'}, 100);
+		
+		setGallery($);
+	});
+});
+	
+</script>
+
+	<div id="wrapper">
+		<h1 id="title">ギャラリー</h1>
+		<div id="image">
+			<ul id="image-list">
+				<li class="li"><img src="img/01.jpg" width="250" alt="01" /></li>
+				<li><img src="img/02.jpg" width="250" alt="02" /></li>
+				<li><img src="img/03.jpg" width="250" alt="03" /></li>
+				<li><img src="img/04.jpg" width="250" alt="04" /></li>
+				<li><img src="img/05.jpg" width="250" alt="05" /></li>
+				<li><img src="img/06.jpg" width="250" alt="06" /></li>
+			</ul>
+		</div>
+		<ul id="pager">
+			<li id="prev"><span>前へ</span></li>
+			<li id="next"><span>次へ</span></li>
+		</ul>
+		<ul id="thum">
+				<li><img src="img/01.jpg" width="125" alt="01" /></li>
+				<li><img src="img/02.jpg" width="125" alt="02" /></li>
+				<li><img src="img/03.jpg" width="125" alt="03" /></li>
+				<li><img src="img/04.jpg" width="125" alt="04" /></li>
+				<li><img src="img/05.jpg" width="125" alt="05" /></li>
+				<li><img src="img/06.jpg" width="125" alt="06" /></li>
+		</ul>
+	</div>
+</body>
+</html>
