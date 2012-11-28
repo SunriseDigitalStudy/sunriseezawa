@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>ギャラリー</title>
+<link rel="stylesheet" type="text/css" media="screen" href="reset.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="gallery2.css" />
+<script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+
+var imagelist = $('#image-list'),
+thum = $('#thum'),
+prev = $('#prev'),
+next = $('#next'),
+total = thum.find('img').size();
+
+prev.addClass('off');
+
+$('a', '#thum').click(function (){
+	var getimage = $(this).attr('href');
+	$('img', '#image-list').attr('src', 'getimage');
+	return false;
+});
+
+next.click(function(){
+	var id = parseFloat(imagelist.css('margin-left'))/-250+1;
+	setGallery(id);
+});
+
+prev.click(function(){
+	var id = parseFloat(imagelist.css('margin-left'))/-250-1;
+	setGallery(id);
+});
+
+$('img', '#thum').click(function (){
+	var id = $('img', '#thum').index(this);
+	setGallery(id);
+});
+
+function setGallery(id) {
+	var margin = 0,
+	position = margin - id * 250;
+	
+	if(id <= 0) {
+		prev.addClass('off');
+		next.removeClass('off');
+	}
+	else if (id >= total-1) {
+		prev.removeClass('off');
+		next.addClass('off');
+	} 
+	else {
+		prev.removeClass('off');
+		next.removeClass('off');
+	}
+	
+	if(id >= 0 && id < total)
+	$('#image-list:not(:animated)').animate({marginLeft: position+'px'}, 100);
+}
+
+});
+	
+</script>
+</head>
+
+<body >
+
+	<div id="wrapper">
+		<h1 id="title">ギャラリー</h1>
+		<div id="image">
+			<ul id="image-list">
+			<li><img src="" width="250" /></li>
+			</ul>
+		</div>
+		<ul id="pager">
+			<li id="prev"><span>前へ</span></li>
+			<li id="next"><span>次へ</span></li>
+		</ul>
+		<ul id="thum">
+				<li><a href="img/01.jpg"><img src="img/01-thum.jpg" width="125" /></a></li>
+				<li><a href="img/02.jpg"><img src="img/02-thum.jpg" width="125" /></a></li>
+				<li><a href="img/03.jpg"><img src="img/03-thum.jpg" width="125" /></a></li>
+				<li><a href="img/04.jpg"><img src="img/04-thum.jpg" width="125" /></a></li>
+				<li><a href="img/05.jpg"><img src="img/05-thum.jpg" width="125" /></a></li>
+				<li><a href="img/06.jpg"><img src="img/06-thum.jpg" width="125" /></a></li>
+		</ul>
+	</div>
+</body>
+</html>
