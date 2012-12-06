@@ -1,0 +1,44 @@
+
+div#wrapper {
+	position: relative;
+	padding-bottom: 5px;
+	border-bottom: 3px #ff94ea solid;
+}
+
+div#wrapper h1#title {
+	margin-bottom: 10px;
+	padding: 10px;
+	background-color: #ff94ea;
+	font-size: 116%;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+div#wrapper p {
+	position: absolute;
+	top: 45px;
+	left: 10px;
+}
+
+div#wrapper ul#image-list {
+	overflow: hidden;
+	width: 490px;
+	margin-left: 270px;
+}
+
+div#wrapper ul#image-list li {
+	float: left;
+}
+
+div#wrapper ul#pager {
+	clear: left;
+	margin: 10px 0;
+	padding: 5px 0;
+	background-color: #ff94ea;
+	text-align: center	;
+}
+
+div#wrapper ul#pager li {
+	display: inline;
+	margin: 5px 20px;
+}
