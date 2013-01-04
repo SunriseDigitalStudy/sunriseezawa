@@ -19,7 +19,9 @@ prev.addClass('off');
 
 $('a', '#thum').click(function (){
 	var getimage = $(this).attr('href');
-	$('img', '#image-list').attr('src', 'getimage');
+		id = $('a', '#thum').index(this);
+		margin = 250 * id;
+	$('img', '#image-list').attr('src', ''+getimage+'').css('margin-left', ''+margin+'px');
 	return false;
 });
 
@@ -70,7 +72,7 @@ function setGallery(id) {
 		<h1 id="title">ギャラリー</h1>
 		<div id="image">
 			<ul id="image-list">
-			<li><img src="" width="250" /></li>
+			<li><img src="img/01.jpg" width="250" /></li>
 			</ul>
 		</div>
 		<ul id="pager">
