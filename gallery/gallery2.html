@@ -27,11 +27,21 @@ $('a', '#thum').click(function (){
 
 next.click(function(){
 	var id = parseFloat(imagelist.css('margin-left'))/-250+1;
+		image = id + 1;
+		margin = 250 * id;
+	if(id < total){
+	$('img', '#image-list').attr('src', 'img/0'+image+'.jpg').css('margin-left', ''+margin+'px')
+	}
 	setGallery(id);
 });
 
 prev.click(function(){
 	var id = parseFloat(imagelist.css('margin-left'))/-250-1;
+		image = id + 1;
+		margin = 250 * id;
+	if(id >= 0){
+	$('img', '#image-list').attr('src', 'img/0'+image+'.jpg').css('margin-left', ''+margin+'px')
+	}
 	setGallery(id);
 });
 
