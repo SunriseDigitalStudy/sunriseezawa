@@ -1,5 +1,5 @@
 {extends file='mobile/super/footer/base.tpl'}
-{block name='title'}検索結果&nbsp;お店検索&nbsp;{/block}
+{block name='title'}aaaaab検索結果&nbsp;お店検索&nbsp;{/block}
 
 {block name='container'}
 {strip}
