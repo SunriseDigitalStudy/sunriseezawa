@@ -19,17 +19,29 @@ prev.addClass('off');
 
 $('a', '#thum').click(function (){
 	var getimage = $(this).attr('href');
-	$('img', '#image-list').attr('src', 'getimage');
+		id = $('a', '#thum').index(this);
+		margin = 250 * id;
+	$('img', '#image-list').attr('src', ''+getimage+'').css('margin-left', ''+margin+'px');
 	return false;
 });
 
 next.click(function(){
 	var id = parseFloat(imagelist.css('margin-left'))/-250+1;
+		image = id + 1;
+		margin = 250 * id;
+	if(id < total){
+	$('img', '#image-list').attr('src', 'img/0'+image+'.jpg').css('margin-left', ''+margin+'px')
+	}
 	setGallery(id);
 });
 
 prev.click(function(){
 	var id = parseFloat(imagelist.css('margin-left'))/-250-1;
+		image = id + 1;
+		margin = 250 * id;
+	if(id >= 0){
+	$('img', '#image-list').attr('src', 'img/0'+image+'.jpg').css('margin-left', ''+margin+'px')
+	}
 	setGallery(id);
 });
 
@@ -70,7 +82,7 @@ function setGallery(id) {
 		<h1 id="title">ギャラリー</h1>
 		<div id="image">
 			<ul id="image-list">
-			<li><img src="" width="250" /></li>
+			<li><img src="img/01.jpg" width="250" /></li>
 			</ul>
 		</div>
 		<ul id="pager">
