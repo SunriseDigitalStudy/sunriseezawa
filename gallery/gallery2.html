@@ -15,6 +15,8 @@ prev = $('#prev'),
 next = $('#next'),
 total = thum.find('img').size();
 
+alert('応募数の上限をオーバーしています。\nお一人様3店までの応募とさせて頂いております。');
+
 prev.addClass('off');
 
 $('a', '#thum').click(function (){
