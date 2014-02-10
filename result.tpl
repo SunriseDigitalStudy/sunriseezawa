@@ -39,8 +39,9 @@
 {/foreach}
 <hr size=1 width=90% align=center noshade color="#ff8000" />
 <div align="center">
+ああああ
 
-<font color="navy" size="-1">[{$condition_name}]の一覧</font>
+<font color="navy" size="-1">[{$condition_name}]のあ一覧</font>
 
 </div>
 <div align="right">
