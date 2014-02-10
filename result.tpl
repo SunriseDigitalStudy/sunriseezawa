@@ -95,6 +95,7 @@
 <font color="#0000FF" size="-1">◇ccca業種別に絞り込む</font>
 <br />
 {foreach $count_category_list as $item}
+テストテストテストテストテストテストテスト
 <a href="/i/search/{$mode}/result?{$query_string}&category={$item["id"]}"><font color="FF00FF" size="2">{$item["name"]}</font></a>
 <font size="2" color="#000080">[{$item["count"]}]</font><br />
 {/foreach}
