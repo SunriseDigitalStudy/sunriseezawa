@@ -34,9 +34,10 @@
 				[{$shop->getDisplayStation()->getName()}]{$shop->getShortName()}<br />
 			{/if}
 		{/if}
-      </font>
+      </font>aaaa
     </a>
-{/foreach}
+{/foreach}aaaaa
+{/foreach}aaaaa
 <hr size=1 width=90% align=center noshade color="#ff8000" />
 <div align="center">
 ああああ
