@@ -36,7 +36,7 @@
 		{/if}
       </font>aaaa
     </a>
-{/foreach}aaaaa
+{/foreach}aaaaaaaaaaa
 {/foreach}aaaaa
 <hr size=1 width=90% align=center noshade color="#ff8000" />
 <div align="center">
