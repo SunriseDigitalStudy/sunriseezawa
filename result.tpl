@@ -92,7 +92,7 @@
 {* カテゴリで絞込み *}
 {if $count_category_list}
 <hr size=1 width=90% align=center noshade color="#ff8000" />
-<font color="#0000FF" size="-1">◇aaa業種別に絞り込む</font>
+<font color="#0000FF" size="-1">◇bbb業種別に絞り込む</font>
 <br />
 {foreach $count_category_list as $item}
 <a href="/i/search/{$mode}/result?{$query_string}&category={$item["id"]}"><font color="FF00FF" size="2">{$item["name"]}</font></a>
