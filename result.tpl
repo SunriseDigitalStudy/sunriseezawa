@@ -41,7 +41,7 @@
 <div align="center">
 ああああ
 
-<font color="navy" size="-1">[{$condition_name}]のあああ一覧</font>
+<font color="navy" size="-1">[{$condition_name}]のあ一覧</font>
 
 </div>
 <div align="right">
